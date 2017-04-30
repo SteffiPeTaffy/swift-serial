@@ -36,7 +36,7 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         
         do {
             soundRecorder = try AVAudioRecorder.init(url: fileURL, settings: recordSettings)
-            soundRecorder?.record(forDuration: 2)
+            soundRecorder?.record(forDuration: 5)
         } catch {
             print("Recorder could not be initialized")
         }
@@ -65,9 +65,16 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         
         let asUInt8Array = stringFromUser.utf8.map{ UInt8($0) }
         
-        let when = DispatchTime.now()
-        DispatchQueue.main.asyncAfter(deadline: when+0.5) {
-            self.switchRelays(char: asUInt8Array[0])
+        var when = DispatchTime.now()
+        for char in asUInt8Array {
+            when = when + 0.2
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.clearRelayState()
+            }
+            when = when + 0.2
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.switchRelays(char: char)
+            }
         }
     }
     
@@ -80,8 +87,7 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         let inputString = readLine()
         
         DispatchQueue.main.async(execute: { () -> Void in
-            self.clearRelayState()
-            self.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString)")
+            self.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString).m4a")
             self.handleUserInput(stringFromUser: inputString!)
         })
         
