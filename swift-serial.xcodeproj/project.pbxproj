@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F2DEC5D0C1E78CF10044D6F /* libPods-swift-serial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C3AA49D4C44B3C7B8A1FC /* libPods-swift-serial.a */; };
 		FEED83BD1EB4F57B00B10E6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED83BC1EB4F57B00B10E6A /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		088492364896CD5AF1FC605C /* Pods-swift-serial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-serial.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-serial/Pods-swift-serial.release.xcconfig"; sourceTree = "<group>"; };
+		512C3AA49D4C44B3C7B8A1FC /* libPods-swift-serial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swift-serial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA11862E9401E060D855B570 /* Pods-swift-serial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-serial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-serial/Pods-swift-serial.debug.xcconfig"; sourceTree = "<group>"; };
+		FE1FAB261EB5EB1300EE62DF /* SwiftSerial-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftSerial-Bridging-Header.h"; sourceTree = "<group>"; };
 		FEED83B91EB4F57B00B10E6A /* swift-serial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-serial"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEED83BC1EB4F57B00B10E6A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F2DEC5D0C1E78CF10044D6F /* libPods-swift-serial.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A259962191060573F62A359 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				512C3AA49D4C44B3C7B8A1FC /* libPods-swift-serial.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECA79811630DD3B7118B3BFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA11862E9401E060D855B570 /* Pods-swift-serial.debug.xcconfig */,
+				088492364896CD5AF1FC605C /* Pods-swift-serial.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FEED83B01EB4F57B00B10E6A = {
 			isa = PBXGroup;
 			children = (
 				FEED83BB1EB4F57B00B10E6A /* swift-serial */,
 				FEED83BA1EB4F57B00B10E6A /* Products */,
+				ECA79811630DD3B7118B3BFC /* Pods */,
+				4A259962191060573F62A359 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				FEED83BC1EB4F57B00B10E6A /* main.swift */,
+				FE1FAB261EB5EB1300EE62DF /* SwiftSerial-Bridging-Header.h */,
 			);
 			path = "swift-serial";
 			sourceTree = "<group>";
@@ -69,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEED83C01EB4F57B00B10E6A /* Build configuration list for PBXNativeTarget "swift-serial" */;
 			buildPhases = (
+				1A02165D51B34DE6460EC2E9 /* [CP] Check Pods Manifest.lock */,
 				FEED83B51EB4F57B00B10E6A /* Sources */,
 				FEED83B61EB4F57B00B10E6A /* Frameworks */,
 				FEED83B71EB4F57B00B10E6A /* CopyFiles */,
+				ED8F2DAEDBCB69EA560C6E59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -89,11 +117,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Stefanie Grewenig";
 				TargetAttributes = {
 					FEED83B81EB4F57B00B10E6A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -113,6 +142,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A02165D51B34DE6460EC2E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED8F2DAEDBCB69EA560C6E59 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-serial/Pods-swift-serial-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FEED83B51EB4F57B00B10E6A /* Sources */ = {
@@ -140,8 +202,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -185,8 +249,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -205,20 +271,27 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
 		FEED83C11EB4F57B00B10E6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA11862E9401E060D855B570 /* Pods-swift-serial.debug.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-serial/SwiftSerial-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FEED83C21EB4F57B00B10E6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 088492364896CD5AF1FC605C /* Pods-swift-serial.release.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-serial/SwiftSerial-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -241,6 +314,7 @@
 				FEED83C21EB4F57B00B10E6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
