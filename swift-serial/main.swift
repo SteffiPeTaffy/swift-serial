@@ -8,16 +8,6 @@
 
 import Foundation
 
-//
-//  main.swift
-//  swift-serial
-//
-//  Created by Stefanie Grewenig on 29/04/2017.
-//  Copyright © 2017 Stefanie Grewenig. All rights reserved.
-//
-
-import Foundation
-
 class SerialHandler : NSObject, ORSSerialPortDelegate {
     var serialPort: ORSSerialPort?
     let standardInputFileHandle = FileHandle.standardInput
@@ -30,9 +20,10 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
             self.handleUserInput(dataFromUser: data as NSData)
         })
         
-        self.serialPort = ORSSerialPort(path: "/dev/cu.Repleo-PL2303-00401414") // please adjust to your handle
-        self.serialPort?.baudRate = 9600
+        self.serialPort = ORSSerialPort(path: "/dev/cu.usbserial-A505B9PT") // please adjust to your handle
+        self.serialPort?.baudRate = 19200
         self.serialPort?.delegate = self
+        self.serialPort?.numberOfStopBits = 1
         serialPort?.open()
         
         RunLoop.current.run() // loop
@@ -46,15 +37,18 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
                 print("Quitting...")
                 exit(EXIT_SUCCESS)
             }
+            
+            print("This data \(dataFromUser) wil be send.")
             self.serialPort?.send(dataFromUser as Data)
         }
     }
     
     // ORSSerialPortDelegate
     
-    func serialPort(serialPort: ORSSerialPort, didReceiveData data: NSData) {
+    func serialPort(_ serialPort: ORSSerialPort, didReceive data: Data) {
+        print("Serial port did receive data.")
         if let string = NSString(data: data as Data, encoding: String.Encoding.utf8.rawValue) {
-            print("\(string)")
+            print("Serial port (\(serialPort)) received \(string)")
         }
     }
     
@@ -62,11 +56,11 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         self.serialPort = nil
     }
     
-    func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
+    func serialPort(_ serialPort: ORSSerialPort, didEncounterError error: Error) {
         print("Serial port (\(serialPort)) encountered error: \(error)")
     }
     
-    func serialPortWasOpened(serialPort: ORSSerialPort) {
+    func serialPortWasOpened(_ serialPort: ORSSerialPort) {
         print("Serial port \(serialPort) was opened")
     }
 }
