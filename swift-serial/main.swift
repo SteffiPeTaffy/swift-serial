@@ -11,16 +11,16 @@ import Foundation
 
 print("Code2Relay")
 print("==========")
-print("To quit type: 'exit'")
-
 
 let path = SerialDetector().findUsbSerialDevicePath()
-if path == "NO_RESULT" {
+if path.isEmpty {
     print("Could not find a connected serial device. Are you sure your device is plugged in?")
     exit(EXIT_SUCCESS)
 }
 
 print("Detected usb serial device \(path)")
+
+print("To quit type: 'exit'")
 SerialHandler().runProcessingInput(path: path)
 
 //SoundRecorder().setupAndRecord(fileName: "my-first-sound")

@@ -47,15 +47,13 @@ class SerialDetector  {
     }
     
     func findUsbSerialDevicePath() -> String {
-        var result = "NO_RESULT";
         var portIterator: io_iterator_t = 0
         
         let kernResult = findSerialDevices(deviceType: kIOSerialBSDAllTypes, serialPortIterator: &portIterator)
         
         if kernResult == KERN_SUCCESS {
-            result = getUSBSerialDevicePath(portIterator: portIterator)
+            return getUSBSerialDevicePath(portIterator: portIterator)
         }
-        
-        return result;
+        return ""
     }
 }
