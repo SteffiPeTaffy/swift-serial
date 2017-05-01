@@ -15,14 +15,10 @@ print("==========")
 let path = SerialDetector().findUsbSerialDevicePath()
 if path.isEmpty {
     print("Could not find a connected serial device. Are you sure your device is plugged in?")
-    exit(EXIT_SUCCESS)
+    exit(EXIT_FAILURE)
 }
 
 print("Detected usb serial device \(path)")
 
-print("To quit type: 'exit'")
 SerialHandler().runProcessingInput(path: path)
-
-//SoundRecorder().setupAndRecord(fileName: "my-first-sound")
-
 

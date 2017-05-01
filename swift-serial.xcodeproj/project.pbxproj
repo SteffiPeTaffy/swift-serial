@@ -10,6 +10,7 @@
 		7F2DEC5D0C1E78CF10044D6F /* libPods-swift-serial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C3AA49D4C44B3C7B8A1FC /* libPods-swift-serial.a */; };
 		FE135F731EB60C31006A9B12 /* serial-detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F721EB60C31006A9B12 /* serial-detector.swift */; };
 		FE135F751EB60C9F006A9B12 /* serial-handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F741EB60C9F006A9B12 /* serial-handler.swift */; };
+		FE135F791EB6FD2E006A9B12 /* sound-recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */; };
 		FEED83BD1EB4F57B00B10E6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED83BC1EB4F57B00B10E6A /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		EA11862E9401E060D855B570 /* Pods-swift-serial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-serial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-serial/Pods-swift-serial.debug.xcconfig"; sourceTree = "<group>"; };
 		FE135F721EB60C31006A9B12 /* serial-detector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "serial-detector.swift"; sourceTree = "<group>"; };
 		FE135F741EB60C9F006A9B12 /* serial-handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "serial-handler.swift"; sourceTree = "<group>"; };
+		FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "sound-recorder.swift"; sourceTree = "<group>"; };
 		FE1FAB261EB5EB1300EE62DF /* SwiftSerial-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftSerial-Bridging-Header.h"; sourceTree = "<group>"; };
 		FEED83B91EB4F57B00B10E6A /* swift-serial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-serial"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEED83BC1EB4F57B00B10E6A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				FE1FAB261EB5EB1300EE62DF /* SwiftSerial-Bridging-Header.h */,
 				FE135F721EB60C31006A9B12 /* serial-detector.swift */,
 				FE135F741EB60C9F006A9B12 /* serial-handler.swift */,
+				FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */,
 			);
 			path = "swift-serial";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				FEED83BD1EB4F57B00B10E6A /* main.swift in Sources */,
 				FE135F731EB60C31006A9B12 /* serial-detector.swift in Sources */,
 				FE135F751EB60C9F006A9B12 /* serial-handler.swift in Sources */,
+				FE135F791EB6FD2E006A9B12 /* sound-recorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

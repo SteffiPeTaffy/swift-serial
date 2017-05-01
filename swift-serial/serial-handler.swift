@@ -11,7 +11,7 @@ import AVFoundation
 
 class SerialHandler : NSObject, ORSSerialPortDelegate {
     var serialPort: ORSSerialPort?
-    var soundRecorder: AVAudioRecorder?
+    var soundRecorder = SoundRecorder()
     
     
     func openSerialPort(path: String) {
@@ -22,26 +22,6 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         serialPort?.open()
     }
     
-    func setupAndRecord(fileName: String) {
-        let recordSettings = [ AVFormatIDKey : kAudioFormatAppleLossless,
-                               AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
-                               AVEncoderBitRateKey: 320000,
-                               AVNumberOfChannelsKey : 2,
-                               AVSampleRateKey : 44100.0 ] as [String : Any]
-        
-        let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        
-        let fileURL = docDirURL.appendingPathComponent(fileName)
-        
-        
-        do {
-            soundRecorder = try AVAudioRecorder.init(url: fileURL, settings: recordSettings)
-            soundRecorder?.record(forDuration: 5)
-        } catch {
-            print("Recorder could not be initialized")
-        }
-    }
-    
     func setRelays(command: UInt8, address: UInt8, input: UInt8) {
         let checksum: UInt8 = command ^ address ^ input
         let bytes : [UInt8] = [ command, address, input, checksum]
@@ -49,7 +29,7 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         self.serialPort?.send(data as Data)
     }
     
-    func clearRelayState() {
+    func clearRelays() {
         setRelays(command: 3, address: 0, input: 0)
     }
     
@@ -65,11 +45,13 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         
         let asUInt8Array = stringFromUser.utf8.map{ UInt8($0) }
         
+        //let allAscii = (1...127).map { UInt8($0) }
+        
         var when = DispatchTime.now()
         for char in asUInt8Array {
             when = when + 0.2
             DispatchQueue.main.asyncAfter(deadline: when) {
-                self.clearRelayState()
+                self.clearRelays()
             }
             when = when + 0.2
             DispatchQueue.main.asyncAfter(deadline: when) {
@@ -87,7 +69,7 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         let inputString = readLine()
         
         DispatchQueue.main.async(execute: { () -> Void in
-            self.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString).m4a")
+            self.soundRecorder.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString).m4a", seconds: 2)
             self.handleUserInput(stringFromUser: inputString!)
         })
         
