@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import AVFoundation
+
 
 print("Code2Relay")
 print("==========")
@@ -18,10 +18,7 @@ if path.isEmpty {
     exit(EXIT_FAILURE)
 }
 
-let audioFilePath = "input-ab-8275D635-7AD3-4CC6-9700-3D4833B6AF8A.raw"
-WavReader().makeVector(fileName: audioFilePath)
+print("Detected usb serial device \(path)")
 
-
-//print("Detected usb serial device \(path)")
-//SerialHandler().runProcessingInput(path: path)
+SerialHandler().runProcessingInput(path: path)
 

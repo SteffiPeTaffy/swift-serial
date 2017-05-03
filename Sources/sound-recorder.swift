@@ -16,7 +16,7 @@ class SoundRecorder {
         let recordSettings = [ AVFormatIDKey : kAudioFormatAppleLossless,
                                AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
                                AVEncoderBitRateKey: 320000,
-                               AVNumberOfChannelsKey : 1,
+                               AVNumberOfChannelsKey : 2,
                                AVSampleRateKey : 44100.0 ] as [String : Any]
         
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)

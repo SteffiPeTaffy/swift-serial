@@ -11,6 +11,7 @@
 		FE135F731EB60C31006A9B12 /* serial-detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F721EB60C31006A9B12 /* serial-detector.swift */; };
 		FE135F751EB60C9F006A9B12 /* serial-handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F741EB60C9F006A9B12 /* serial-handler.swift */; };
 		FE135F791EB6FD2E006A9B12 /* sound-recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */; };
+		FE4B39721EBA52FF005B8A0F /* wav-reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4B39711EBA52FF005B8A0F /* wav-reader.swift */; };
 		FEED83BD1EB4F57B00B10E6A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED83BC1EB4F57B00B10E6A /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		FE135F741EB60C9F006A9B12 /* serial-handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "serial-handler.swift"; sourceTree = "<group>"; };
 		FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "sound-recorder.swift"; sourceTree = "<group>"; };
 		FE1FAB261EB5EB1300EE62DF /* SwiftSerial-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftSerial-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE4B39711EBA52FF005B8A0F /* wav-reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "wav-reader.swift"; sourceTree = "<group>"; };
 		FEED83B91EB4F57B00B10E6A /* swift-serial */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-serial"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEED83BC1EB4F57B00B10E6A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				FE135F721EB60C31006A9B12 /* serial-detector.swift */,
 				FE135F741EB60C9F006A9B12 /* serial-handler.swift */,
 				FE135F781EB6FD2E006A9B12 /* sound-recorder.swift */,
+				FE4B39711EBA52FF005B8A0F /* wav-reader.swift */,
 			);
 			path = "swift-serial";
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				FEED83BD1EB4F57B00B10E6A /* main.swift in Sources */,
 				FE135F731EB60C31006A9B12 /* serial-detector.swift in Sources */,
 				FE135F751EB60C9F006A9B12 /* serial-handler.swift in Sources */,
+				FE4B39721EBA52FF005B8A0F /* wav-reader.swift in Sources */,
 				FE135F791EB6FD2E006A9B12 /* sound-recorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

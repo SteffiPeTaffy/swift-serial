@@ -69,7 +69,7 @@ class SerialHandler : NSObject, ORSSerialPortDelegate {
         let inputString = readLine()
         
         DispatchQueue.main.async(execute: { () -> Void in
-            self.soundRecorder.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString).raw", seconds: 2)
+            self.soundRecorder.setupAndRecord(fileName: "input-\(inputString!)-\(NSUUID().uuidString).m4a", seconds: 2)
             self.handleUserInput(stringFromUser: inputString!)
         })
         
